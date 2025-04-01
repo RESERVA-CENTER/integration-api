@@ -6,7 +6,7 @@ Agenda do Pet - Integração API
 
 ## Listagem de todos os serviços
 
-`GET`
+`GET` https://devapi.reserva.software/v1/business-services/2
 
 ```json
 {
@@ -178,7 +178,7 @@ Agenda do Pet - Integração API
 
 ## Listagem de agendamentos de um usuário
 
-`GET`
+`GET` https://devapi.reserva.software/v1/users/123/bookings
 
 **Retorno de todos os agendamentos de um usuário**
 
@@ -224,7 +224,7 @@ Agenda do Pet - Integração API
 
 ## Listagem de agendamentos de um negócio/estabelecimento
 
-`GET`
+`GET` https://devapi.reserva.software/v1/business/2/bookings
 
 **Retorno de todos os agendamentos de um negócio**
 
@@ -270,7 +270,7 @@ Agenda do Pet - Integração API
 
 ## Criação de um agendamento
 
-`POST`
+`POST` https://devapi.reserva.software/v1/bookings
 
 
 | Campo | Tipo | Obrigatório | Descrição |
@@ -294,21 +294,30 @@ Agenda do Pet - Integração API
 
 ```json
 {
-  "business_id": 2,
-  "user_id": 3,
-  "plannedStart": "2025-03-20 20:00:00",
-  "plannedFinish": "2025-03-20 20:00:00",
-  "booking_items": [
-    {
-      "business_service_id": 2,
-      "business_service_name": "Tosa",
-      "being_id_from": 2,
-      "being_name_from": "Vinicius",
-      "being_id_to": 32,
-      "being_name_to": "Fred",
-      "quantity": 5
-    },
-  ]
+    "business_id": 2,
+    "user_id": 123,
+    "plannedStart": "2025-02-21 13:00:00",
+    "plannedFinish": "2025-02-21 13:30:00",
+    "booking_items": [
+        {
+            "business_service_id": 1,
+            "business_service_name": "Banho",
+            "being_id_from": 2,
+            "being_name_from": "Vinicius",
+            "being_id_to": 2,
+            "being_name_to": "Fred",
+            "quantity": 2
+        },
+        {
+            "business_service_id": 1,
+            "business_service_name": "Banho",
+            "being_id_from": 2,
+            "being_name_from": "Vinicius",
+            "being_id_to": 2,
+            "being_name_to": "Fred",
+            "quantity": 2
+        }
+    ]
 }
 ```
 
@@ -324,12 +333,43 @@ Agenda do Pet - Integração API
 }
 ```
 
+---
+
+## Reagendamento de um agendamento de usuário
+
+`PATCH` https://devapi.reserva.software/v1/bookings/13/rescheduleUserBooking
+
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|:-------------:|-----------|
+| plannedStart | String | Sim |
+| plannedFinish | String | Sim |
+| user_id | int | Sim |
+
+
+**Exemplo de Corpo de Requisição**
+
+```json
+{
+    "user_id": 122,
+    "plannedStart": "2025-02-22 13:00",
+    "plannedFinish": "2025-02-22 15:00"
+}
+```
+
+**Retorno**
+
+```json
+{
+  "message": "Agendamento cancelado com sucesso",
+}
+```
 
 ---
 
 ## Cancelamento de um agendamento de usuário
 
-`PATCH`
+`PATCH` https://devapi.reserva.software/v1/bookings/13/cancelUserBooking
 
 
 | Campo | Tipo | Obrigatório | Descrição |
