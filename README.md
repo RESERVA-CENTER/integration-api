@@ -4,6 +4,85 @@ Agenda do Pet - Integração API
 
 - Serviços
 
+---
+
+Todas as rotas precisam de um token para funcionar e para enviar esse token, basta enviar ele na parte Authorization, e em sequência em Bearer Token.
+Qualquer dúvida, entre em contato.
+
+---
+
+## Autenticação
+
+`POST` https://devapi.reserva.software/v1/auth/users/login
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|:-------------:|-----------|
+| email | string | Sim |
+| password | string | Sim |
+
+**Exemplo de Corpo de Requisição**
+
+```json
+{
+  "email": "test@mail.com",
+  "password": "123456",
+}
+```
+
+**Retornoo**
+
+```json
+{
+  "status": true,
+  "token": "aaa...aaaa",
+  "refreshToken": "aaa...aaaa",
+  "data": {
+      "user": {
+          "user_id": 4,
+          "name": "test,
+          "email": "test@mail.com"
+      }
+  }
+}
+```
+
+Nesse caso, eu vou enviar de volta dois tokens.
+O token, ele serve para ser usado nas rotas, porém esse token tem um tempo x de duração, após esse tempo ele expira e ele se torna inválido.
+**Por favor guarde de forma segura o refresh token.**
+Para conseguir um token novo, existe duas maneiras.
+
+A recomendada é utilizar a rota abaixo, para conseguir um token novo válido.
+
+A segunda forma, seria logando novamente na conta de vocês que gerará um novo token e refresh token.
+
+`POST` https://devapi.reserva.software/v1/auth/refresh
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|:-------------:|-----------|
+| refresh_token | string | Sim |
+
+
+**Exemplo de Corpo de Requisição**
+
+Apenas precisa enviar o refresh token no body através do 'x-www-form-urlencoded'
+
+| Key | Value |
+|-------|------|
+| refresh_token | aaa....aaaa |
+
+O retorno devolve um novo token para refresh e um novo token para uso, **Por favor guarde de forma segura o refresh token.**
+
+**Retornoo**
+
+```json
+{
+    "token": "aaa..aaa",
+    "refreshToken": "aaa...aaa"
+}
+```
+
+---
+
 ## Listagem de todos os serviços
 
 `GET` https://devapi.reserva.software/v1/business-services/2
@@ -330,95 +409,6 @@ Agenda do Pet - Integração API
   "data": {
     "booking_id": 1,
   }
-}
-```
-
----
-
-## Reagendamento de um agendamento de usuário
-
-`PATCH` https://devapi.reserva.software/v1/bookings/13/rescheduleUserBooking
-
-
-| Campo | Tipo | Obrigatório | Descrição |
-|-------|------|:-------------:|-----------|
-| plannedStart | String | Sim |
-| plannedFinish | String | Sim |
-| user_id | int | Sim |
-
-
-**Exemplo de Corpo de Requisição**
-
-```json
-{
-    "user_id": 122,
-    "plannedStart": "2025-02-22 13:00",
-    "plannedFinish": "2025-02-22 15:00"
-}
-```
-
-**Retorno**
-
-```json
-{
-  "message": "Agendamento cancelado com sucesso",
-}
-```
-
----
-
-## Cancelamento de um agendamento de usuário
-
-`PATCH` https://devapi.reserva.software/v1/bookings/13/cancelUserBooking
-
-
-| Campo | Tipo | Obrigatório | Descrição |
-|-------|------|:-------------:|-----------|
-| user_id | int | Sim |
-
-
-**Exemplo de Corpo de Requisição**
-
-```json
-{
-  "user_id": 11,
-}
-```
-
-**Retorno**
-
-```json
-{
-  "message": "Agendamento cancelado com sucesso",
-}
-```
-
----
-
-## Cancelamento de um agendamento de negócio/estabelecimento
-
-`PATCH`
-
-
-| Campo | Tipo | Obrigatório | Descrição |
-|-------|------|:-------------:|-----------|
-| business_id | int | Sim |
-
-
-**Exemplo de Corpo de Requisição**
-
-```json
-{
-  "business_id": 2,
-}
-```
-
-
-**Retorno**
-
-```json
-{
-  "message": "Agendamento cancelado com sucesso",
 }
 ```
 
