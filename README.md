@@ -13,7 +13,7 @@ Qualquer dúvida, entre em contato.
 
 ## Autenticação
 
-`POST` https://devapi.reserva.software/v1/auth/users/login
+`POST` https://devapi.reserva.software/auth/users/login
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
@@ -55,7 +55,7 @@ A recomendada é utilizar a rota abaixo, para conseguir um token novo válido.
 
 A segunda forma, seria logando novamente na conta de vocês que gerará um novo token e refresh token.
 
-`POST` https://devapi.reserva.software/v1/auth/refresh
+`POST` https://devapi.reserva.software/auth/refresh
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
