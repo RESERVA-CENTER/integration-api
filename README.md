@@ -39,7 +39,7 @@ Qualquer dúvida, entre em contato.
   "data": {
       "user": {
           "user_id": 4,
-          "name": "test,
+          "name": "test",
           "email": "test@mail.com"
       }
   }
