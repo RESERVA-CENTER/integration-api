@@ -413,3 +413,99 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 ```
 
 ---
+
+## Reagendamento de um agendamento de usuário
+
+`PATCH` https://devapi.reserva.software/v1/bookings/13/rescheduleUserBooking
+ 
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|:-------------:|-----------|
+| plannedStart | String | Sim |
+| plannedFinish | String | Sim |
+| user_id | int | Sim | Por que o user_id? O motivo é, se o usuario dvjpet que possui o id 123, fez um agendamento, apenas ele com o user_id pode remarcar ou cancelar o agendamento dele. |
+
+**Exemplo de Corpo de Requisição**
+
+```json
+{
+    "user_id": 122,
+    "plannedStart": "2025-02-22 13:00",
+    "plannedFinish": "2025-02-22 15:00"
+}
+
+```
+ 
+**Retorno**
+
+```json
+{
+  "message": "Agendamento cancelado com sucesso",
+}
+ 
+
+```
+
+---
+
+## Cancelamento de um agendamento de usuário
+
+`PATCH` https://devapi.reserva.software/v1/bookings/13/cancelUserBooking
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|:-------------:|-----------|
+| user_id | int | Sim | Por que o user_id? O motivo é, se o usuario dvjpet que possui o id 123, fez um agendamento, apenas ele com o user_id pode remarcar ou cancelar o agendamento dele. |
+ 
+
+**Exemplo de Corpo de Requisição**
+
+```json
+{
+  "user_id": 11,
+}
+
+```
+
+**Retorno**
+ 
+```json
+ 
+
+{
+  "message": "Agendamento cancelado com sucesso",
+}
+ 
+
+```
+
+---
+ 
+
+
+ 
+
+## Cancelamento de um agendamento de negócio/estabelecimento
+ 
+`PATCH`
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|:-------------:|-----------|
+| business_id | int | Sim | Por que o business_id? O motivo é, se o estabelecimento dvjpet que possui o id 123, e um usuário qualquer, vamos supor o user_id 1 e o user_2 fez um agendamento para o estabelecimento dvjpet, caso por algum imprevisto esse estabelecimenti não consiga atender, ele pode cancelar.
+
+
+**Exemplo de Corpo de Requisição**
+ 
+```json
+{
+  "business_id": 2,
+}
+```
+
+**Retorno**
+
+```json
+{
+  "message": "Agendamento cancelado com sucesso",
+}
+```
+ 
+
