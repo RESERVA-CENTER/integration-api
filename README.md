@@ -137,9 +137,8 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
-| business_id | int | Sim |
-| service_id | int | Sim |
-| user_id | int | Sim |
+| business_id | int | Sim | Id do estabelecimento |
+| service_id | int | Sim | Id de um serviço base, como Banho, Tosa |
 | name | string | Sim |
 | description | int | Não |
 | bookingLimit | int | Não |
@@ -156,7 +155,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 {
   "business_id": 2,
   "service_id": 2,
-  "user_id": 1,
   "name": "name-test",
   "description": "description-test",
   "bookingLimit": 3,
@@ -347,6 +345,54 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ---
 
+- Agendamento
+
+## Listagem de um agendamento especifico
+
+`GET` https://devapi.reserva.software/v1/bookings/{booking_id}
+
+**Retorno de um agendamento**
+
+```json
+{
+  "data": {
+    "bookings": [
+      {
+        "booking_id": 169,
+        "status_id": -2,
+        "business_id": 2,
+        "uusr_id_for": 2,
+        "being_id_from": 2,
+        "being_name_from": "Vinicius",
+        "user_phoneNumber": "+55 (11) 99999-8888",
+        "business_phoneNumber": "+55 (11) 99999-8888",
+        "plannedStart": "2025-03-12 17:00",
+        "plannedFinish": "2025-03-12 18:30",
+        "plannedPrice": "R$ 119,90",
+        "bookItems": [
+          {
+            "booking_item_id": 398,
+            "being_id_to": 32,
+            "being_name_to": "Fred",
+            "professional_id": null,
+            "professional_name": null,
+            "business_service_id": 1,
+            "business_service_name": "Banho e tosa simples de 8 a 15kg",
+            "quantity": 1,
+            "unitPrice": "R$ 119,90",
+            "itemPrice": "R$ 119,90",
+            "customerNotes": null,
+            "businessNotes": null
+          },
+        ]
+      },
+    ]
+  }
+}
+```
+
+---
+
 ## Criação de um agendamento
 
 `POST` https://devapi.reserva.software/v1/bookings
@@ -416,7 +462,9 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Reagendamento de um agendamento de usuário
 
-`PATCH` https://devapi.reserva.software/v1/bookings/13/rescheduleUserBooking
+Para reagendar um agendamento, basta passar o id do agendamento.
+
+`PATCH` https://devapi.reserva.software/v1/bookings/{booking_id}/rescheduleUserBooking
  
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
@@ -449,7 +497,9 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Cancelamento de um agendamento de usuário
 
-`PATCH` https://devapi.reserva.software/v1/bookings/13/cancelUserBooking
+Para cancelar um agendamento, basta passar o id do agendamento.
+
+`PATCH` https://devapi.reserva.software/v1/bookings/{booking_id}/cancelUserBooking
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
