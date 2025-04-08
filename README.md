@@ -535,7 +535,7 @@ Para cancelar um agendamento, basta passar o id do agendamento.
 
 ## Cancelamento de um agendamento de negócio/estabelecimento
  
-`PATCH`
+`PATCH` https://devapi.reserva.software/v1/bookings/{booking_id}/cancelBusinessBooking
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
