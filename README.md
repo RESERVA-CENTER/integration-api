@@ -85,7 +85,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Listagem de todos os serviços
 
-`GET` https://devapi.reserva.software/v1/business-services/2
+`GET` https://devapi.reserva.software/v1/business/{business_id}/business-services
 
 ```json
 {
@@ -109,7 +109,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
       },
       {
         "business_id": 9,
-        "business_service_id": 17,
+        "business_service_id": 18,
         "service_id": 1,
         "name": "name-test",
         "description": "description-test",
@@ -132,7 +132,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Criação de um serviço
 
-`POST` 
+`POST` https://devapi.reserva.software/v1/business/{business_id}/business-services
 
 
 | Campo | Tipo | Obrigatório | Descrição |
@@ -186,7 +186,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Edição de um serviço
 
-`PUT`
+`PUT` https://devapi.reserva.software/v1/business/{business_id}/business-services/{business_service_id}
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
