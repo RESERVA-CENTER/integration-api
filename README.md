@@ -255,7 +255,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Listagem de agendamentos de um usuário
 
-`GET` https://devapi.reserva.software/v1/users/123/bookings
+`GET` https://devapi.reserva.software/v1/users/{user_id}/bookings
 
 **Retorno de todos os agendamentos de um usuário**
 
@@ -301,7 +301,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Listagem de agendamentos de um negócio/estabelecimento
 
-`GET` https://devapi.reserva.software/v1/business/2/bookings
+`GET` https://devapi.reserva.software/v1/business/{business_id}/bookings
 
 **Retorno de todos os agendamentos de um negócio**
 
