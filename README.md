@@ -127,7 +127,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Listagem de um negócio
 
-`GET` https://devapi.reserva.software/v1/business/{business_id}
+`GET` https://devapi.reserva.software/v1/business/{business_uuid}
 
 ```json
 {
@@ -153,7 +153,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Listagem de todos os serviços
 
-`GET` https://devapi.reserva.software/v1/business/{business_id}/business-services
+`GET` https://devapi.reserva.software/v1/business/{business_uuid}/business-services
 
 ```json
 {
