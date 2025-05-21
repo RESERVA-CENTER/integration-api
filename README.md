@@ -196,7 +196,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
-| business_id | int | Sim | Id do estabelecimento |
 | service_id | int | Sim | Id de um serviço base, como Banho(1), Tosa(2) |
 | name | string | Sim |
 | description | int | Não |
