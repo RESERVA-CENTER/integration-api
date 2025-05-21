@@ -200,13 +200,13 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Criação de um serviço
 
-`POST` https://devapi.reserva.software/v1/business/{business_id}/business-services
+`POST` https://devapi.reserva.software/v1/business/{business_uuid}/business-services
 
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
 | business_id | int | Sim | Id do estabelecimento |
-| service_id | int | Sim | Id de um serviço base, como Banho, Tosa |
+| service_id | int | Sim | Id de um serviço base, como Banho(1), Tosa(2) |
 | name | string | Sim |
 | description | int | Não |
 | bookingLimit | int | Não |
@@ -254,7 +254,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ## Edição de um serviço
 
-`PUT` https://devapi.reserva.software/v1/business/{business_id}/business-services/{business_service_id}
+`PATCH` https://devapi.reserva.software/v1/business/{business_uuid}/business-services/{business_service_uuid}
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
@@ -299,22 +299,9 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ---
 
-## Remoção de um serviço
+## Deletar um serviço
 
-`DELETE`
-
-| Campo | Tipo | Obrigatório |
-|-------|------|:-------------:|
-| business_id | int | Sim |
-
-
-**Exemplo de Corpo de Requisição**
-
-```json
-{
-  "business_id": 2
-}
-```
+`DELETE` https://devapi.reserva.software/v1/business/{business_uuid}/business-services/{business_service_uuid}
 
 
 ---
