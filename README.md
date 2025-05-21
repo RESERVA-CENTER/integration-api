@@ -83,6 +83,74 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ---
 
+## Listagem de todos os negocios
+
+`GET` https://devapi.reserva.software/v1/business
+
+```json
+{
+    "message": "Empresas retornadas com sucesso",
+    "data": {
+        "business": [
+            {
+                "business_id": 1,
+                "business_uuid": "860615f7-3655-11f0-bd93-0ec389958a21",
+                "being_id": 9,
+                "name": "Pet Shop Casa Branca",
+                "description": "Aqui no Petshop Casa Branca cuidamos de cada animal como se fosse um dos nossos",
+                "shortcut": "Pet Casa Branca",
+                "iconUrl": "iconURL",
+                "latitude": "-23.71508221",
+                "longitude": "-46.66851734",
+                "evaluations": 0
+            },
+            {
+                "business_id": 2,
+                "business_uuid": "86061ce8-3655-11f0-bd93-0ec389958a21",
+                "being_id": 10,
+                "name": "Pet Maison Wow",
+                "description": "Pet Maison Wow é sensacional!",
+                "shortcut": "Pet Maison Wow",
+                "iconUrl": "iconURL",
+                "latitude": "-23.51508221",
+                "longitude": "-46.46851734",
+                "evaluations": 0
+            }
+    ]
+  }
+}
+```
+
+---
+
+---
+
+## Listagem de um negócio
+
+`GET` https://devapi.reserva.software/v1/business/{business_id}
+
+```json
+{
+    "message": "Empresas retornada com sucesso",
+    "data": {
+        "business": {
+            "business_id": 1,
+            "business_uuid": "860615f7-3655-11f0-bd93-0ec389958a21",
+            "being_id": 9,
+            "name": "Pet Shop Casa Branca",
+            "description": "Aqui no Petshop Casa Branca cuidamos de cada animal como se fosse um dos nossos",
+            "shortcut": "Pet Casa Branca",
+            "iconUrl": "iconURL",
+            "latitude": "-23.71508221",
+            "longitude": "-46.66851734",
+            "evaluations": 0
+        }
+    }
+}
+```
+
+---
+
 ## Listagem de todos os serviços
 
 `GET` https://devapi.reserva.software/v1/business/{business_id}/business-services
