@@ -25,7 +25,7 @@ Qualquer dúvida, entre em contato.
 ```json
 {
   "email": "test@mail.com",
-  "password": "123456",
+  "password": "123456"
 }
 ```
 
