@@ -93,7 +93,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
     "data": {
         "business": [
             {
-                "business_id": 1,
                 "business_uuid": "860615f7-3655-11f0-bd93-0ec389958a21",
                 "being_id": 9,
                 "name": "Pet Shop Casa Branca",
@@ -105,7 +104,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
                 "evaluations": 0
             },
             {
-                "business_id": 2,
                 "business_uuid": "86061ce8-3655-11f0-bd93-0ec389958a21",
                 "being_id": 10,
                 "name": "Pet Maison Wow",
@@ -134,7 +132,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
     "message": "Empresas retornada com sucesso",
     "data": {
         "business": {
-            "business_id": 1,
             "business_uuid": "860615f7-3655-11f0-bd93-0ec389958a21",
             "being_id": 9,
             "name": "Pet Shop Casa Branca",
@@ -160,8 +157,7 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
   "data": {
     "business_services": [
       {
-        "business_id": 9,
-        "business_service_id": 17,
+        "business_service_uuid": "ce4dd4c7-367c-11f0-bd93-0ec389958a21",
         "service_id": 1,
         "name": "name-test",
         "description": "description-test",
@@ -172,12 +168,9 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
         "defaultTime": "00:30",
         "defaultLeadtime": "00:10",
         "status": 1,
-        "creation": "2024-11-21T21:14:01.000Z",
-        "modification": null
       },
       {
-        "business_id": 9,
-        "business_service_id": 18,
+        "business_service_uuid": "b1d141d2-3682-11f0-bd93-0ec389958a21",
         "service_id": 1,
         "name": "name-test",
         "description": "description-test",
@@ -188,8 +181,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
         "defaultTime": "00:30",
         "defaultLeadtime": "00:10",
         "status": 1,
-        "creation": "2024-11-21T21:14:01.000Z",
-        "modification": null
       },
     ]
   }
@@ -221,7 +212,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ```json
 {
-  "business_id": 2,
   "service_id": 2,
   "name": "name-test",
   "description": "description-test",
@@ -258,7 +248,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 | Campo | Tipo | Obrigatório | Descrição |
 |-------|------|:-------------:|-----------|
-| business_id | int | Sim |
 | service_id | int | Sim |
 | user_id | int | Sim |
 | name | string | Sim |
@@ -276,7 +265,6 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ```json
 {
-  "business_id": 2,
   "service_id": 2,
   "name": "name-test",
   "description": "description-test",
