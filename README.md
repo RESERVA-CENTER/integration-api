@@ -72,7 +72,7 @@ Apenas precisa enviar o refresh token no body através do 'x-www-form-urlencoded
 
 O retorno devolve um novo token para refresh e um novo token para uso, **Por favor guarde de forma segura o refresh token.**
 
-**Retornoo**
+**Retorno**
 
 ```json
 {
@@ -449,6 +449,8 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 | booking_items | array | Sim |
 | business_service_id | int | Sim |
 | business_service_name | string | Sim |
+| professional_id | int | Não | Id do profissional.
+| professional_name | string | Não |
 | being_id_from | int | Sim | Id de quem está realizando o agendamento.
 | being_name_from | string | Sim |
 | being_id_to | int | Sim | Id de quem irá para o agendamento no dia marcado.
@@ -461,14 +463,16 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
 
 ```json
 {
-    "business_id": 2,
+    "business_uuid": "86061ce8-3655-11f0-bd93-0ec389958a21",
     "user_id": 123,
     "plannedStart": "2025-02-21 13:00:00",
     "plannedFinish": "2025-02-21 13:30:00",
     "booking_items": [
         {
-            "business_service_id": 1,
+            "business_service_uuid": "0acc10ec-3656-11f0-bd93-0ec389958a21",
             "business_service_name": "Banho",
+            "professional_id": 7,
+            "professional_name": "vinicius",
             "being_id_from": 2,
             "being_name_from": "Vinicius",
             "being_id_to": 2,
@@ -476,8 +480,10 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
             "quantity": 2
         },
         {
-            "business_service_id": 1,
+            "business_service_uuid": "0acc10ec-3656-11f0-bd93-0ec389958a21",
             "business_service_name": "Banho",
+            "professional_id": 7,
+            "professional_name": "vinicius",
             "being_id_from": 2,
             "being_name_from": "Vinicius",
             "being_id_to": 2,
@@ -599,5 +605,38 @@ Para cancelar um agendamento, basta passar o id do agendamento.
   "message": "Agendamento cancelado com sucesso",
 }
 ```
+
+
+---
+
+## Listagaem de todos os professionals
+
+`GET` https://devapi.reserva.software/v1/business/{business_uuid}/professionals
+
+```json
+{
+    "message": "",
+    "data": {
+        "professionals": [
+            {
+                "business_id": 1,
+                "professional_id": 7,
+                "being_id": 9,
+                "professional_name": "vinicius",
+                "professional_nickName": null
+            },
+            {
+                "business_id": 1,
+                "professional_id": 8,
+                "being_id": 9,
+                "professional_name": "vinicius",
+                "professional_nickName": null
+            }
+        ]
+    }
+}
+```
+
+---
  
 
