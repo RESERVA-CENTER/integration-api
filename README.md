@@ -140,7 +140,36 @@ O retorno devolve um novo token para refresh e um novo token para uso, **Por fav
             "iconUrl": "iconURL",
             "latitude": "-23.71508221",
             "longitude": "-46.66851734",
-            "evaluations": 0
+            "evaluations": 0,
+            "availability": [
+                {
+                    "availability_id": 10,
+                    "business_id": 2,
+                    "day_of_week_id": 1,
+                    "day_of_week_name": "Monday",
+                    "openTime": "10:00",
+                    "closeTime": "18:00",
+                    "bookingLimit": null
+                },
+                {
+                    "availability_id": 13,
+                    "business_id": 2,
+                    "day_of_week_id": 2,
+                    "day_of_week_name": "Tuesday",
+                    "openTime": "10:00",
+                    "closeTime": "18:00",
+                    "bookingLimit": null
+                },
+                {
+                    "availability_id": 14,
+                    "business_id": 2,
+                    "day_of_week_id": 3,
+                    "day_of_week_name": "Wednesday",
+                    "openTime": "10:00",
+                    "closeTime": "18:00",
+                    "bookingLimit": null
+                }
+            ]
         }
     }
 }
