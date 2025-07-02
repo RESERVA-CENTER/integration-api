@@ -667,5 +667,57 @@ Para cancelar um agendamento, basta passar o id do agendamento.
 ```
 
 ---
+
+## Listagaem de um professional
+
+`GET` https://devapi.reserva.software/v1/business/{business_uuid}/professionals/{professional_id}
+
+```json
+{
+    "message": "Professional retornado com sucesso",
+    "data": {
+        "professionals": {
+            "professional_id": 7,
+            "being_id": 9,
+            "professional_name": "Vinicius",
+            "professional_nickName": null,
+            "availability": [
+                {
+                    "availability_id": 3,
+                    "business_id": 1,
+                    "professional_id": 7,
+                    "day_of_week_id": 1,
+                    "day_of_week_name": "Monday",
+                    "openTime": "10:00",
+                    "closeTime": "18:00",
+                    "bookingLimit": null
+                },
+                {
+                    "availability_id": 8,
+                    "business_id": 1,
+                    "professional_id": 7,
+                    "day_of_week_id": 2,
+                    "day_of_week_name": "Tuesday",
+                    "openTime": "10:00",
+                    "closeTime": "18:00",
+                    "bookingLimit": null
+                },
+                {
+                    "availability_id": 9,
+                    "business_id": 1,
+                    "professional_id": 7,
+                    "day_of_week_id": 3,
+                    "day_of_week_name": "Wednesday",
+                    "openTime": "10:00",
+                    "closeTime": "18:00",
+                    "bookingLimit": null
+                }
+            ]
+        }
+    }
+}
+```
+
+---
  
 
